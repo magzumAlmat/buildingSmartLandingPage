@@ -15,5 +15,19 @@
     }
   ],
   "Спикеры": [],
-  "Спонсоры": []
+  "Спонсоры": [
+    {
+      "id": "1764793681395qspma7",
+      "timestamp": "03.12.2025, 23:28:01",
+      "companyName": "Бетмен и ребята",
+      "contactPerson": "Талгат",
+      "email": "teacher@example.com",
+      "phone": "+7 475 7574833",
+      "website": "https://talga.kz",
+      "sponsorLevel": "bronze",
+      "industry": "audit",
+      "message": "Hi apple",
+      "status": "Закрыта"
+    }
+  ]
 }
