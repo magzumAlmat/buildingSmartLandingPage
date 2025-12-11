@@ -237,3 +237,16 @@ export async function updateSubmissionStatus(id, type, newStatus, username, pass
     return { success: false, message: error instanceof Error ? error.message : "Произошла ошибка при обновлении статуса." };
   }
 }
+
+export async function exportAllSubmissions(username, password) {
+  try {
+    if (username !== 'admin' || password !== 'admin123') {
+      return { success: false, message: 'Invalid credentials' };
+    }
+    const allData = await readSubmissionsFromJson();
+    return { success: true, data: allData };
+  } catch (error) {
+    console.error("Error exporting submissions:", error);
+    return { success: false, message: "Ошибка при экспорте данных" };
+  }
+}

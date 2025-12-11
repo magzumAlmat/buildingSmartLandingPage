@@ -11,10 +11,38 @@
       "specialization": "Чел в плаще",
       "experience": "1-3",
       "id": "1764793519669ymajax",
-      "status": "Одобрена"
+      "status": "Закрыта"
+    },
+    {
+      "id": "1765435469033hc4bjy",
+      "timestamp": "11.12.2025, 09:44:28",
+      "fullName": "МАГЗУМ АЛМАТ АСКАРУЛЫ",
+      "email": "student@example.com",
+      "phone": "+77080616420",
+      "company": "БэтменИРебята",
+      "position": "Главная Летучая мышь",
+      "specialization": "Чел в плаще",
+      "experience": "1-3",
+      "status": "Новая"
     }
   ],
-  "Спикеры": [],
+  "Спикеры": [
+    {
+      "id": "1765435532333d93yp0",
+      "timestamp": "11.12.2025, 09:45:32",
+      "fullName": "GALILEO",
+      "email": "vlesyonarosla1990@inbox.ru",
+      "phone": "+7 475 7574833",
+      "country": "ITALIA",
+      "company": "ITALIA",
+      "position": "Главная Летучая мышь",
+      "expertise": "YES",
+      "bio": "NO",
+      "topicTitle": "SOME DOKLAD",
+      "topicDescription": "SOME DESCRIPTION",
+      "status": "Новая"
+    }
+  ],
   "Спонсоры": [
     {
       "id": "1764793681395qspma7",

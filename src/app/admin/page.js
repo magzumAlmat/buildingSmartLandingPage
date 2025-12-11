@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Container, Paper, CircularProgress, Alert, Button, TextField, Chip, Snackbar } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { Lock as LockIcon, Refresh as RefreshIcon } from '@mui/icons-material';
-import { getAllSubmissions, updateSubmissionStatus } from '@/actions/submissions';
+import { Lock as LockIcon, Refresh as RefreshIcon, Download as DownloadIcon } from '@mui/icons-material';
+import { getAllSubmissions, updateSubmissionStatus, exportAllSubmissions } from '@/actions/submissions';
+import * as XLSX from 'xlsx';
 
 // Компонент для имитации аутентификации
 const AuthForm = ({ onLogin }) => {
@@ -182,7 +183,42 @@ export default function AdminPanel() {
         return <Chip label={params.value} color={color} size="small" />;
       }
     },
+
   ];
+
+  const handleExportExcel = async () => {
+    try {
+      setLoading(true);
+      const result = await exportAllSubmissions(creds.username, creds.password);
+      
+      if (!result.success) {
+        throw new Error(result.message || "Ошибка экспорта");
+      }
+
+      const wb = XLSX.utils.book_new();
+      const allData = result.data;
+
+      Object.keys(allData).forEach(sheetName => {
+        const sheetData = allData[sheetName];
+        if (sheetData && sheetData.length > 0) {
+           const ws = XLSX.utils.json_to_sheet(sheetData);
+           XLSX.utils.book_append_sheet(wb, ws, sheetName);
+        }
+      });
+
+      XLSX.writeFile(wb, `BuildingSmart_Submissions_${new Date().toISOString().split('T')[0]}.xlsx`);
+      
+      setSnackbarMessage('Файл успешно скачан!');
+      setSnackbarSeverity('success');
+      setSnackbarOpen(true);
+    } catch (err) {
+      setSnackbarMessage(err.message || 'Ошибка при экспорте');
+      setSnackbarSeverity('error');
+      setSnackbarOpen(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Container maxWidth="xl" sx={{ py: 5 }}>
@@ -191,6 +227,16 @@ export default function AdminPanel() {
           Админ-панель: Заявки
         </Typography>
         <Box>
+          <Button 
+             variant="contained" 
+             color="success" 
+             onClick={handleExportExcel} 
+             disabled={loading}
+             startIcon={<DownloadIcon />}
+             sx={{ mr: 2 }}
+          >
+            Скачать Excel
+          </Button>
           <Button 
             variant="outlined" 
             onClick={fetchSubmissions} 
