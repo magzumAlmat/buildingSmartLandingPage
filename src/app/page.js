@@ -368,30 +368,30 @@ export default function Home() {
         <Container maxWidth="lg">
           <Box sx={{ 
             textAlign: 'center', 
-            maxWidth: 700, 
+            maxWidth: 900, 
             mx: 'auto', 
             mb: 8 
           }}>
             <Typography variant="overline" sx={{ color: '#6366f1', fontWeight: 700, letterSpacing: 2 }}>
               РЕТРОСПЕКТИВА
             </Typography>
-            <Typography variant="h3" sx={{ fontWeight: 800, mt: 1 }}>
+            <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, fontSize: { xs: '2rem', md: '3.5rem' } }}>
               Итоги 2025 года
             </Typography>
           </Box>
 
-          <Paper sx={{ ...glassStyle, p: { xs: 4, md: 6 } }}>
-            <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 6 }}>
-              <Typography paragraph sx={{ fontSize: '1.05rem', color: 'text.secondary', lineHeight: 1.8 }}>
+          <Paper sx={{ ...glassStyle, p: { xs: 4, md: 8 }, py: { xs: 6, md: 10 } }}>
+            <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 8 }}>
+              <Typography paragraph sx={{ fontSize: { xs: '1.05rem', md: '1.35rem' }, color: 'text.secondary', lineHeight: 1.8 }}>
                 В Алматы прошла Первая Национальная Премия и Конференция BuildingSMART Kazakhstan Awards & StudentSMART Cup 2025. Событие стало важной вехой в цифровой трансформации строительной отрасли страны.
               </Typography>
-              <Typography paragraph sx={{ fontSize: '1.05rem', color: 'text.secondary', lineHeight: 1.8 }}>
+              <Typography paragraph sx={{ fontSize: { xs: '1.05rem', md: '1.35rem' }, color: 'text.secondary', lineHeight: 1.8 }}>
                 Организованное АО «КазНИИСА» и buildingSMART Kazakhstan, мероприятие объединило госструктуры, бизнес и науку. Особое внимание было уделено приветственному слову вице-министра промышленности и строительства, подчеркнувшего важность курса на цифровизацию.
               </Typography>
-              <Typography paragraph sx={{ fontSize: '1.05rem', color: 'text.secondary', lineHeight: 1.8 }}>
+              <Typography paragraph sx={{ fontSize: { xs: '1.05rem', md: '1.35rem' }, color: 'text.secondary', lineHeight: 1.8 }}>
                 Награждение BuildingSMART Kazakhstan Awards отметило лучшие инновационные проекты, а StudentSMART Cup выявил таланты среди молодежи. Панельные дискуссии и мастер-классы затронули острые вопросы интероперабельности и госэкспертизы.
               </Typography>
-              <Typography sx={{ fontSize: '1.05rem', fontWeight: 600, color: 'white' }}>
+              <Typography sx={{ fontSize: { xs: '1.05rem', md: '1.35rem' }, fontWeight: 600, color: 'white' }}>
                 Это был мощный импульс для формирования единой экосистемы openBIM в Казахстане.
               </Typography>
             </Box>
@@ -407,7 +407,7 @@ export default function Home() {
       {/* Details Grid */}
       <Box id="details" sx={sectionSpacing}>
         <Container maxWidth="xl">
-          <Grid container spacing={3}>
+          <Grid container spacing={3} justifyContent="center">
             {[
               { 
                 icon: <EventIcon fontSize="large" />, 
@@ -526,7 +526,7 @@ export default function Home() {
           <Typography variant="h2" align="center" sx={{ fontWeight: 800, mb: 8 }}>
             Наши Спикеры
           </Typography>
-          <Grid container spacing={4}>
+          <Grid container spacing={4} justifyContent="center">
              {[
               { icon: <PublicIcon sx={{ fontSize: 48 }} />, title: 'Международные эксперты', desc: 'Ведущие специалисты BIM и openBIM', color: '#6366f1' },
               { icon: <AccountBalanceIcon sx={{ fontSize: 48 }} />, title: 'Государственный сектор', desc: 'Представители Министерств РК', color: '#a855f7' },
@@ -563,26 +563,26 @@ export default function Home() {
         <Container maxWidth="lg">
           <Box sx={{ 
             ...glassStyle, 
-            p: { xs: 4, md: 8 }, 
+            p: { xs: 3, md: 8 }, 
             textAlign: 'center',
-            background: 'linear-gradient(135deg, rgba(244, 243, 240, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(244, 243, 240, 0.1) 0%, rgba(238, 233, 224, 0.05) 100%)',
             borderColor: 'rgba(251, 191, 36, 0.2)'
           }}>
             <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
-               <Box sx={{  px: 3, py: 1, borderRadius: 3 }}>
+               <Box sx={{  px: { xs: 2, md: 3 }, py: 1, borderRadius: 3, maxWidth: '100%' }}>
                 <Image 
                   src="/images/logo.png" 
                   alt="BuildingSMART Sponsor Logo" 
                   width={300} 
                   height={90} 
-                  style={{ objectFit: 'contain', width: 'auto', height: '90px' }}
+                  style={{ objectFit: 'contain', maxWidth: '100%', height: 'auto', maxHeight: '90px' }}
                 />
                </Box>
             </Box>
-            <Typography variant="h3" sx={{ fontWeight: 800, mb: 3 }}>
+            <Typography variant="h3" sx={{ fontWeight: 800, mb: 3, fontSize: { xs: '1.75rem', md: '3rem' } }}>
               Станьте Спонсором 2026
             </Typography>
-            <Typography variant="body1" sx={{ maxWidth: 700, mx: 'auto', mb: 4, fontSize: '1.2rem', color: 'rgba(255,255,255,0.9)' }}>
+            <Typography variant="body1" sx={{ maxWidth: 700, mx: 'auto', mb: 4, fontSize: { xs: '1rem', md: '1.2rem' }, color: 'rgba(255,255,255,0.9)' }}>
               Продемонстрируйте свои достижения лидерам отрасли на главном событии 2026 года.
             </Typography>
             <Button 

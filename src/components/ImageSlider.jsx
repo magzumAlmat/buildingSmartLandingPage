@@ -102,7 +102,8 @@ export default function ImageSlider() {
           
           // Map images to texts. If more images than texts, just use texts looping or limit to texts length.
           // Let's create slides based on available images, reusing texts.
-          const newSlides = shuffledImages.slice(0, 5).map((imgSrc, index) => {
+          const limit = Math.ceil(shuffledImages.length / 3);
+          const newSlides = shuffledImages.slice(0, limit).map((imgSrc, index) => {
              const textContent = SLIDE_TEXTS[index % SLIDE_TEXTS.length];
              return {
                id: index,
@@ -174,7 +175,8 @@ export default function ImageSlider() {
                     sx={{ 
                       height: '100%', 
                       width: '100%',
-                      objectFit: 'contain', // Fit image by height/width without cropping
+                      objectFit: { xs: 'cover', md: 'contain' }, // cover on mobile, contain on desktop
+                      objectPosition: 'center',
                       filter: 'brightness(0.8)',
                     }}
                   />
@@ -184,15 +186,15 @@ export default function ImageSlider() {
                       bottom: 0,
                       left: 0,
                       right: 0,
-                      p: 4,
-                      background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%)', // Darker gradient for text readability
+                      p: { xs: 2, md: 4 }, // Responsive padding
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%)', 
                       color: 'white',
                     }}
                   >
-                    <Typography variant="h3" sx={{ fontWeight: 700 }}>
+                    <Typography variant="h3" sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', md: '3rem' }, mb: 1 }}>
                       {slide.title}
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="h6" sx={{ fontSize: { xs: '0.9rem', md: '1.25rem' } }}>
                       {slide.text}
                     </Typography>
                   </Box>
